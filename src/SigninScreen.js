@@ -15,6 +15,21 @@ export default class SigninScreen extends React.Component {
       password:""
     }
   }
+
+  signInUser = (email, password) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then( () => {
+        this.props.navigation.navigate("Home");
+      })
+      .catch(error => {
+        alert(error.message)
+      })
+  }
+
+
+
   render() {
     return (
       
@@ -55,7 +70,9 @@ export default class SigninScreen extends React.Component {
               style={styles.button}
               full
               rounded
-              onPress={ ()=>{} }
+              onPress={ ()=>{
+                this.signInUser(this.state.email, this.state.password);
+              } }
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </Button>

@@ -1,19 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
+import * as firebase from "firebase";
+
 
 
 
 
 
 export default class LoadingScreen extends React.Component {
+
+  //check if the user is authenticated or not below
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged( (authenticate) => {
+      if (authenticate) {
+        this.props.navigation.replace("Home")
+      } else {
+        this.props.navigation.replace("signin")
+      }
+    } )
+  }
+
   render() {
     return (
       <View>
-        <Text>Sign In</Text>
-        <Button
-        title="signin"
-        onPress={() => this.props.navigation.navigate('signin')}
-      />
+        <ActivityIndicator size="large" />
+       
       </View>
     );
   }

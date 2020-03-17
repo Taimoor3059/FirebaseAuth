@@ -16,9 +16,38 @@ export default class SigninScreen extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Sign in screen</Text>
-      </View>
+      <KeyboardAvoidingView>
+        <View style={styles.logoContainer}>
+          <Image
+          source={require('../assets/logo.png')} 
+          />
+          <Text>hello world</Text>
+        </View>
+        <Form style={styles.form}>
+
+          <Item floatingLabel>
+            <Label>Email</Label>
+            <Input
+              autoCorrect={false}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              onChangeText={email => this.setState({email})}
+            />
+          </Item>
+
+          <Item floatingLabel>
+            <Label>password</Label>
+            <Input
+            secureTextEntry={true}
+              autoCorrect={false}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              onChangeText={password => this.setState({password})}
+            />
+          </Item>
+
+        </Form>
+      </KeyboardAvoidingView>
     );
   }
   

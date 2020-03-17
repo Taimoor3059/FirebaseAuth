@@ -2,8 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, Image, TouchableOpacity  } from 'react-native';
 import * as firebase from "firebase";
 import { Form, Item, Input, Label, Button } from "native-base"
-import { ScrollView } from 'react-native-gesture-handler';
-import { ScrollableComponent } from 'react-native-keyboard-aware-scroll-view';
+
 
 
 
